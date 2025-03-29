@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GM Films</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo de estilo -->
+    <link rel="icon" href="Imagens/icone.png" type="image/png">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <img src="Imagens/logo.png" alt="Logo" width="150">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Imagem grande abaixo do cabeçalho -->
+<section class="imagem-grande">
+    <img id="imagem-grande" src="Imagens/capa (6).jpg" alt="Imagem Grande">
+    <div class="frase-impacto">
+        <h2>Transformando Momentos <br> em Memórias Inesquecíveis</h2>
+    </div>
+</section>
+
+<!-- Seção de texto entre imagem e vídeo -->
+<section class="texto-video">
+    <h2>Pré Wedding Country</h2>
+</section>
+
+<!-- Vídeo com texto sobreposto -->
+<section class="video-section">
+    <div class="video-container">
+        <video id="video" width="100%" height="auto" controls>
+            <source src="Videos/Pré-Wedding-Bruna-e-Mateus.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+    </div>
+</section>
+
+
+    <!-- Seções do site -->
+    <main>
+        <section id="home">
+            <h1>Bem-vindo ao meu site!</h1>
+            <p>Este é um site de exemplo.</p>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre</h2>
+            <p>Informações sobre o site ou a empresa.</p>
+        </section>
+
+        <section id="servicos">
+            <h2>Serviços</h2>
+            <p>Detalhes sobre os serviços oferecidos.</p>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Formas de contato: email, telefone, etc.</p>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Meu Site. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para reproduzir o vídeo ao clicar no botão play
+        function playVideo() {
+            var video = document.getElementById('video');
+            var playButton = document.querySelector('.play-button');
+            video.play();
+            playButton.style.display = 'none'; // Esconde o botão de play quando o vídeo começa
+        }
+
+    // Função para alternar as imagens automaticamente
+    var imagens = [
+    "Imagens/capa (1).jpg",
+    "Imagens/capa (2).jpg",
+    "Imagens/capa (3).jpg",
+    "Imagens/capa (4).jpg",
+    "Imagens/capa (5).jpg",
+    "Imagens/capa (6).jpg"
+];
+
+var contador = 0;
+var imagem = document.getElementById('imagem-grande');
+
+// Função para mudar a imagem com transição suave
+function mudarImagem() {
+    // Remove a classe 'visivel' da imagem atual
+    imagem.classList.remove('visivel');
+
+    // Aguarda a transição de opacidade terminar antes de mudar a imagem
+    setTimeout(function() {
+        // Altera o src da imagem
+        imagem.src = imagens[contador];
+
+        // Adiciona a classe 'visivel' para mostrar a nova imagem com transição suave
+        imagem.classList.add('visivel');
+    }, 1000); // O tempo de atraso é o mesmo da transição de opacidade
+
+    contador++;
+    if (contador >= imagens.length) {
+        contador = 0; // Volta ao início das imagens
+    }
+}
+
+// Mudar a imagem a cada 5 segundos (5000 milissegundos)
+setInterval(mudarImagem, 5000);
+
+
+    </script>
+</body>
+</html>
